@@ -1,4 +1,4 @@
-package com.jasonlam604.stockanalyzer.indicators;
+package com.jasonlam604.stocktechnicals.indicators;
 
 public interface Indicator {
 

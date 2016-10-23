@@ -1,4 +1,4 @@
-package com.jasonlam604.stockanalyzer.util;
+package com.jasonlam604.stocktechnicals.util;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;

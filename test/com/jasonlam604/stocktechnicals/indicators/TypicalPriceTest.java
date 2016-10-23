@@ -1,6 +1,6 @@
-package com.jasonlam604.stockanalyzer.indicators;
+package com.jasonlam604.stocktechnicals.indicators;
 
-import com.jasonlam604.stockanalyzer.indicators.TypicalPrice;
+import com.jasonlam604.stocktechnicals.indicators.TypicalPrice;
 
 import org.junit.Test;
 import org.junit.Assert;

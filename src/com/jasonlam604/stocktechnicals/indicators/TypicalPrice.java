@@ -1,6 +1,6 @@
-package com.jasonlam604.stockanalyzer.indicators;
+package com.jasonlam604.stocktechnicals.indicators;
 
-import com.jasonlam604.stockanalyzer.util.NumberHelper;
+import com.jasonlam604.stocktechnicals.util.NumberHelper;
 
 /**
  * 
