@@ -1,5 +1,7 @@
 package com.jasonlam604.stockanalyzer.indicators;
 
+import com.jasonlam604.stockanalyzer.util.NumberHelper;
+
 /**
  * 
  * Typical Price
@@ -42,6 +44,9 @@ public class TypicalPrice implements Indicator {
 	 * @return
 	 */
 	public double execute(double high, double low, double close) {
-		return (high + low + close)/3;
+		//return (high + low + close)/3;
+		return NumberHelper.roundTwoDecimals((high + low + close)/3);
+		//return Math.round(  ((high + low + close)/3.0)*100   ) / 100;
 	}
 }
+
