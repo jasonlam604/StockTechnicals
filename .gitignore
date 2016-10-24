@@ -12,3 +12,11 @@
 hs_err_pid*
 /bin/
 /target/
+
+# Eclipse
+.settings
+.project
+.buildpath
+
+# Ignore Mac DS_Store files
+.DS_Store
