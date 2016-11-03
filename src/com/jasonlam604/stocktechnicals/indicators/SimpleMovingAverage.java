@@ -28,8 +28,9 @@ public class SimpleMovingAverage {
 		double[] results = new double[price.length];
 
 		int maxLength = price.length - period;
+		
 		for (int i = 0; i <= maxLength; i++) {
-			results[i] = NumberHelper
+			results[ (i+period-1)  ] = NumberHelper
 					.roundTwoDecimals((Arrays.stream(Arrays.copyOfRange(price, i, (i + period))).sum()) / period);
 		}
 
