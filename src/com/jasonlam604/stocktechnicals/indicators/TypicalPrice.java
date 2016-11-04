@@ -3,14 +3,13 @@ package com.jasonlam604.stocktechnicals.indicators;
 import com.jasonlam604.stocktechnicals.util.NumberHelper;
 
 /**
- * 
  * Typical Price
  *
  * The Typical Price indicator is simply an average of each day's price. The
  * Median Price and Weighted Close are similar indicators. The Typical Price
  * indicator provides a simple, single-line plot of the day's average price.
  * Some investors use the Typical Price rather than the closing price when
- * creating moving average penetration systems.
+ * creating moving average penetration systems. --StockCharts.com
  *
  * TP= (high+low+close) / 3
  *
