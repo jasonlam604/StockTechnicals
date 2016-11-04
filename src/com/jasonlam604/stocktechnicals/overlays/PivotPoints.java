@@ -22,8 +22,10 @@ public class PivotPoints {
 	public static int ZONE_NEG_5 = -5;
 	public static int ZONE_NEG_6 = -6;
 	public static int ZONE_NEG_7 = -7;
+	
+	public static int ZONE_UNKNOWN = 0;
 
-	private double pivotPoint;
+	//private double pivotPoint;
 	private double r1;
 	private double r2;
 	private double r3;
@@ -39,6 +41,7 @@ public class PivotPoints {
 	private double s6;
 	private double s7;
 	
+	PivotPoint pivotPoint;
 	
 	public PivotPoints() {
 
@@ -46,38 +49,54 @@ public class PivotPoints {
 	
 	public class PivotPoint {
 		
-		private double pivotPointValue;
+		private double value;
 
+		public void setPivotPointValue(double value) {
+			this.value = value;
+		}
+		
+		public double getValue() {
+			return this.value;
+		}
+		
+		
 	}
 	
 	/**
 	 * Generate Support and Resistance values
 	 */
-	private PivotPoint generatePivotPoints(double high, double low, double close) {
+	public PivotPoint execute(double high, double low, double close) {
 		
-		// Pivot Point
-		this.pivotPoint = (high + low + close) / 3;
-
-		// Resistance Values
-		this.r1 = this.pivotPoint + (0.382 * (high - low));
-		this.r2 = this.pivotPoint + (0.618 * (high - low));
-		this.r3 = this.pivotPoint + (1 * (high - low));
-		this.r4 = this.pivotPoint + (1.27 * (high - low));
-		this.r5 = this.pivotPoint + (1.618 * (high - low));
-		this.r6 = this.pivotPoint + (2 * (high - low));
-		this.r7 = this.pivotPoint + (2.618 * (high - low));
-
-		// Support Values
-		this.s1 = this.pivotPoint - (0.382 * (high - low));
-		this.s2 = this.pivotPoint - (0.618 * (high - low));
-		this.s3 = this.pivotPoint - (1 * (high - low));
-		this.s4 = this.pivotPoint - (1.27 * (high - low));
-		this.s5 = this.pivotPoint - (1.618 * (high - low));
-		this.s6 = this.pivotPoint - (2 * (high - low));
-		this.s7 = this.pivotPoint - (2.618 * (high - low));
+		this.pivotPoint = new PivotPoint();
 		
-		PivotPoint pivotPoint = new PivotPoint();
+		this.generateSupportAndResistance(high, low, close);
 		
 		return pivotPoint;
 	}
+	
+	private void generateSupportAndResistance(double high, double low, double close) {
+		
+		// Pivot Point
+		this.pivotPoint.setPivotPointValue((high + low + close) / 3);
+
+		// Resistance Values
+		this.r1 = this.pivotPoint.getValue() + (0.382 * (high - low));
+		this.r2 = this.pivotPoint.getValue() + (0.618 * (high - low));
+		this.r3 = this.pivotPoint.getValue() + (1 * (high - low));
+		this.r4 = this.pivotPoint.getValue() + (1.27 * (high - low));
+		this.r5 = this.pivotPoint.getValue() + (1.618 * (high - low));
+		this.r6 = this.pivotPoint.getValue() + (2 * (high - low));
+		this.r7 = this.pivotPoint.getValue() + (2.618 * (high - low));
+
+		// Support Values
+		this.s1 = this.pivotPoint.getValue() - (0.382 * (high - low));
+		this.s2 = this.pivotPoint.getValue() - (0.618 * (high - low));
+		this.s3 = this.pivotPoint.getValue() - (1 * (high - low));
+		this.s4 = this.pivotPoint.getValue() - (1.27 * (high - low));
+		this.s5 = this.pivotPoint.getValue() - (1.618 * (high - low));
+		this.s6 = this.pivotPoint.getValue() - (2 * (high - low));
+		this.s7 = this.pivotPoint.getValue() - (2.618 * (high - low));
+	}
+	
+	
 }
