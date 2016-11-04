@@ -1,8 +1,12 @@
 package com.jasonlam604.stocktechnicals.overlays;
 
 /**
- * Pivots Points are significant levels chartists can use to determine directional movement,
- * support and resistance.
+ * Pivots Points
+ * 
+ * Pivots Points are significant levels chartists can use to determine 
+ * directional movement, support and resistance. Pivot Points use the 
+ * prior period's high, low and close to formulate future support 
+ * and resistance. --StockCharts.com
  *
  */
 public class PivotPoints {
