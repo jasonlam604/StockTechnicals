@@ -1,6 +1,6 @@
 package com.jasonlam604.stocktechnicals.indicators;
 
-import com.jasonlam604.stocktechnicals.util.NumberHelper;
+import com.jasonlam604.stocktechnicals.util.NumberFormatter;
 
 /**
  * Commodity Channel Index
@@ -42,7 +42,7 @@ public class CommodityChannelIndex {
 			if (meanDeviation == 0) {
 				cci[i] = 0;
 			} else {
-				cci[i] = NumberHelper.roundTwoDecimals((tp[i] - sma[i]) / (0.015 * meanDeviation));
+				cci[i] = NumberFormatter.roundTwoDecimals((tp[i] - sma[i]) / (0.015 * meanDeviation));
 			}
 
 		}

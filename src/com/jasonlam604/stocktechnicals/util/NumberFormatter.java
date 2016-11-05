@@ -3,10 +3,10 @@ package com.jasonlam604.stocktechnicals.util;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 
-public class NumberHelper {
+public class NumberFormatter {
 
 	public static double roundTwoDecimals(double value) {
-		return NumberHelper.round(value,2);
+		return NumberFormatter.round(value,2);
 	}
 	
 	public static double round(double value, int numberOfDigitsAfterDecimalPoint) {

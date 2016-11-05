@@ -2,7 +2,7 @@ package com.jasonlam604.stocktechnicals.indicators;
 
 import java.util.Arrays;
 
-import com.jasonlam604.stocktechnicals.util.NumberHelper;
+import com.jasonlam604.stocktechnicals.util.NumberFormatter;
 
 /**
  * Simple Moving Average
@@ -36,7 +36,7 @@ public class SimpleMovingAverage {
 		int maxLength = price.length - period;
 
 		for (int i = 0; i <= maxLength; i++) {
-			results[(i + period - 1)] = NumberHelper
+			results[(i + period - 1)] = NumberFormatter
 					.roundTwoDecimals((Arrays.stream(Arrays.copyOfRange(price, i, (i + period))).sum()) / period);
 		}
 

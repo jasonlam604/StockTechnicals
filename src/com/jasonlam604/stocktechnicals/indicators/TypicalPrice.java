@@ -1,6 +1,6 @@
 package com.jasonlam604.stocktechnicals.indicators;
 
-import com.jasonlam604.stocktechnicals.util.NumberHelper;
+import com.jasonlam604.stocktechnicals.util.NumberFormatter;
 
 /**
  * Typical Price
@@ -43,6 +43,6 @@ public class TypicalPrice {
 	 * @return
 	 */
 	public double execute(double high, double low, double close) {
-		return NumberHelper.roundTwoDecimals((high + low + close) / 3);
+		return NumberFormatter.roundTwoDecimals((high + low + close) / 3);
 	}
 }
