@@ -1,5 +1,7 @@
 package com.jasonlam604.stocktechnicals.indicators;
 
+import java.util.Arrays;
+
 import com.jasonlam604.stocktechnicals.util.NumberFormatter;
 import com.jasonlam604.stocktechnicals.util.TrueRange;
 
@@ -20,8 +22,12 @@ public class AverageDirectionalIndex {
 
 	private double[] posDM1;
 	private double[] negDM1;
-	
+
 	private double[] posDmPeriod;
+	private double[] negDmPeriod;
+
+	private double[] posDiPeriod;
+	private double[] negDiPeriod;
 
 	/**
 	 * Calculate ADX (Average Directional Index)
@@ -53,8 +59,12 @@ public class AverageDirectionalIndex {
 		this.negDM1 = new double[this.high.length];
 
 		this.trPeriod = new double[this.high.length];
-		
+
 		this.posDmPeriod = new double[this.high.length];
+		this.negDmPeriod = new double[this.high.length];
+
+		this.posDiPeriod = new double[this.high.length];
+		this.negDiPeriod = new double[this.high.length];
 
 		for (int i = 0; i < high.length; i++) {
 
@@ -73,7 +83,11 @@ public class AverageDirectionalIndex {
 
 			// if(i==period) {
 			this.trueRangePeriod(i);
+
 			this.positiveDirectionalMovementPeriod(i);
+			this.negativeDirectionalMovementPeriod(i);
+
+			this.positiveDirectionalIndicator(i);
 			// }
 
 			// }
@@ -140,7 +154,8 @@ public class AverageDirectionalIndex {
 
 			// Use previous TR Period to build on current TR Period
 			double prevTrPeriod = this.trPeriod[idx - 1];
-			this.trPeriod[idx] = NumberFormatter.roundTwoDecimals(prevTrPeriod - (prevTrPeriod / this.period) + this.tr[idx]);
+			this.trPeriod[idx] = NumberFormatter
+					.roundTwoDecimals(prevTrPeriod - (prevTrPeriod / this.period) + this.tr[idx]);
 
 		} else {
 
@@ -149,22 +164,50 @@ public class AverageDirectionalIndex {
 		}
 
 	}
-	
+
 	public void positiveDirectionalMovementPeriod(int idx) {
-		
-		if (idx == period) {
-			double sum = 0;
-			for(int i=0;i<this.period;i++) {
-				sum = sum + this.posDM1[idx-i];
-			}
-			posDmPeriod[idx] = NumberFormatter.roundTwoDecimals(sum);
-		} else if (idx > period) {
-			
-			// Todo
-			
+
+		if (idx == this.period) {
+			// Determine First value of the given period
+			this.posDmPeriod[idx] = NumberFormatter
+					.roundTwoDecimals(Arrays.stream(Arrays.copyOfRange(this.posDM1, 0, this.period + 1)).sum());
+		} else if (idx > this.period) {
+			// Determine remaining values beyond the first value
+			double prevPosDmPeriod = this.posDmPeriod[idx - 1];
+			this.posDmPeriod[idx] = NumberFormatter
+					.roundTwoDecimals(prevPosDmPeriod - (prevPosDmPeriod / this.period) + this.posDM1[idx]);
+
 		} else {
+			// values for less then the given period
 			posDmPeriod[idx] = 0;
 		}
+
+	}
+
+	public void negativeDirectionalMovementPeriod(int idx) {
+
+		if (idx == this.period) {
+			this.negDmPeriod[idx] = NumberFormatter
+					.roundTwoDecimals(Arrays.stream(Arrays.copyOfRange(this.negDM1, 0, this.period + 1)).sum());
+		} else if (idx > this.period) {
+			double prevNegDmPeriod = this.negDmPeriod[idx - 1];
+			this.negDmPeriod[idx] = NumberFormatter
+					.roundTwoDecimals(prevNegDmPeriod - (prevNegDmPeriod / this.period) + this.negDM1[idx]);
+		} else {
+			this.negDmPeriod[idx] = 0;
+		}
+
+	}
+
+	public void positiveDirectionalIndicator(int idx) {
+
+		double posDmPeriod = this.posDmPeriod[idx];
+		double trPeriod = this.trPeriod[idx];
+
+		if (trPeriod > 0)
+			this.posDiPeriod[idx] = NumberFormatter.roundTwoDecimals(100 * (posDmPeriod / trPeriod));
+		else
+			this.posDiPeriod[idx] = 0;
 	}
 
 	@Override
@@ -187,8 +230,12 @@ public class AverageDirectionalIndex {
 			sb.append(" ");
 			sb.append(String.format("%02.2f", this.trPeriod[i]));
 			sb.append(" ");
-			sb.append(String.format("%02.2f", this.posDmPeriod[i]));			
-			
+			sb.append(String.format("%02.2f", this.posDmPeriod[i]));
+			sb.append(" ");
+			sb.append(String.format("%02.2f", this.negDmPeriod[i]));
+			sb.append(" ");
+			sb.append(String.format("%02.2f", this.posDiPeriod[i]));
+
 			sb.append("\n");
 		}
 
