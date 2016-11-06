@@ -37,7 +37,7 @@ public class SimpleMovingAverage {
 
 		for (int i = 0; i <= maxLength; i++) {
 			results[(i + period - 1)] = NumberFormatter
-					.roundTwoDecimals((Arrays.stream(Arrays.copyOfRange(price, i, (i + period))).sum()) / period);
+					.round((Arrays.stream(Arrays.copyOfRange(price, i, (i + period))).sum()) / period);
 		}
 
 		return results;

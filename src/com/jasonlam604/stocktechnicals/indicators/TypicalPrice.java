@@ -43,6 +43,6 @@ public class TypicalPrice {
 	 * @return
 	 */
 	public double execute(double high, double low, double close) {
-		return NumberFormatter.roundTwoDecimals((high + low + close) / 3);
+		return NumberFormatter.round((high + low + close) / 3);
 	}
 }

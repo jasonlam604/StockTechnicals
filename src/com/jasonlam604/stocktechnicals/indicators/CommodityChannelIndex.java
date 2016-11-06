@@ -42,7 +42,7 @@ public class CommodityChannelIndex {
 			if (meanDeviation == 0) {
 				cci[i] = 0;
 			} else {
-				cci[i] = NumberFormatter.roundTwoDecimals((tp[i] - sma[i]) / (0.015 * meanDeviation));
+				cci[i] = NumberFormatter.round((tp[i] - sma[i]) / (0.015 * meanDeviation));
 			}
 
 		}

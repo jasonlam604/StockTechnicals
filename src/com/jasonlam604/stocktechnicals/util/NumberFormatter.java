@@ -5,7 +5,7 @@ import java.text.DecimalFormat;
 
 public class NumberFormatter {
 
-	public static double roundTwoDecimals(double value) {
+	public static double round(double value) {
 		return NumberFormatter.round(value,2);
 	}
 	

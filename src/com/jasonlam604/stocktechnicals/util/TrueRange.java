@@ -6,6 +6,6 @@ public class TrueRange {
 		double value1 = high - low;
 		double value2 = Math.abs(high - previousClose);
 		double value3 = Math.abs(low - previousClose);
-		return NumberFormatter.roundTwoDecimals(Math.max(value1, Math.max(value2, value3)));
+		return NumberFormatter.round(Math.max(value1, Math.max(value2, value3)));
 	}
 }
