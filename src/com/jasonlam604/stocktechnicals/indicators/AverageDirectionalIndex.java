@@ -79,18 +79,15 @@ public class AverageDirectionalIndex {
 				this.negDM1[i] = this.negativeDirectionalMovement(high[i], high[i - 1], low[i], low[i - 1]);
 			}
 
-			// if(i>= period) {
 
-			// if(i==period) {
 			this.trueRangePeriod(i);
 
 			this.positiveDirectionalMovementPeriod(i);
 			this.negativeDirectionalMovementPeriod(i);
 
 			this.positiveDirectionalIndicator(i);
-			// }
+			this.negativeDirectionalIndicator(i);
 
-			// }
 		}
 
 		return result;
@@ -210,6 +207,16 @@ public class AverageDirectionalIndex {
 			this.posDiPeriod[idx] = 0;
 	}
 
+	public void negativeDirectionalIndicator(int idx) {
+		double negDmPeriod = this.negDmPeriod[idx];
+		double trPeriod = this.trPeriod[idx];
+
+		if (trPeriod > 0)
+			this.negDiPeriod[idx] = NumberFormatter.roundTwoDecimals(100 * (negDmPeriod / trPeriod));
+		else
+			this.negDiPeriod[idx] = 0;
+	}
+
 	@Override
 	public String toString() {
 
@@ -235,7 +242,8 @@ public class AverageDirectionalIndex {
 			sb.append(String.format("%02.2f", this.negDmPeriod[i]));
 			sb.append(" ");
 			sb.append(String.format("%02.2f", this.posDiPeriod[i]));
-
+			sb.append(" ");
+			sb.append(String.format("%02.2f", this.negDiPeriod[i]));
 			sb.append("\n");
 		}
 
