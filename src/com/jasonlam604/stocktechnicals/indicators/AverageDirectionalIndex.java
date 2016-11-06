@@ -47,12 +47,10 @@ public class AverageDirectionalIndex {
 	 */
 	public double[] execute(double[] high, double[] low, double[] close, int period) throws Exception {
 
-		double result[] = new double[0];
-
 		if (period >= high.length)
 			throw new Exception("Given range is bigger then given data set");
 
-		if (high.length != close.length && high.length != low.length)
+		if (high.length != close.length || high.length != low.length)
 			throw new Exception("High, Low and Close are not equal in size");
 
 		this.high = high;
@@ -107,7 +105,7 @@ public class AverageDirectionalIndex {
 
 		}
 
-		return result;
+		return this.adx;
 	}
 
 	/**
@@ -264,7 +262,7 @@ public class AverageDirectionalIndex {
 				data[i] = this.dx[currentIdx];
 			}
 			
-			adx[idx] = Arrays.stream(data).average().getAsDouble();
+			adx[idx] = NumberFormatter.round(Arrays.stream(data).average().getAsDouble());
 		} else if( idx > (this.period + 13)) {
 			adx[idx] = NumberFormatter.round(  ((this.adx[idx-1] * 13) + this.dx[idx]) / this.period);
 		} else {
