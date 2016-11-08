@@ -78,7 +78,7 @@ public class AverageDirectionalIndex {
 
 			if (i > 0) {
 				// Calc True Range
-				this.tr[i] = (new TrueRange()).execute(this.high[i], this.low[i], this.close[i - 1]);
+				this.tr[i] = new TrueRange().calculate(this.high[i], this.low[i], this.close[i - 1]).getTrueRange();
 
 				// Calc +DM1
 				this.posDM1[i] = this.positiveDirectionalMovement(high[i], high[i - 1], low[i], low[i - 1]);
