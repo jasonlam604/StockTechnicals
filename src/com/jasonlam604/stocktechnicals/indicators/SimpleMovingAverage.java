@@ -8,23 +8,25 @@ import com.jasonlam604.stocktechnicals.util.NumberFormatter;
  * Simple Moving Average
  */
 public class SimpleMovingAverage {
+	
+	private double[] results;
 
-	public double[] execute(double[] price, int period) throws Exception {
+	public SimpleMovingAverage calculate(double[] price, int period) throws Exception {
 
 		// ie: if you want 50 SMA then you need 50 data points
 		if (price.length < period)
 			throw new Exception("Not enough data point, given data size less then the indicated period");
 
-		double[] results = new double[price.length];
+		this.results = new double[price.length];
 
 		int maxLength = price.length - period;
 
 		for (int i = 0; i <= maxLength; i++) {
-			results[(i + period - 1)] = NumberFormatter
+			this.results[(i + period - 1)] = NumberFormatter
 					.round((Arrays.stream(Arrays.copyOfRange(price, i, (i + period))).sum()) / period);
 		}
 
-		return results;
+		return this;
 	}
 
 	/**
@@ -35,8 +37,8 @@ public class SimpleMovingAverage {
 	 * @return
 	 * @throws Exception
 	 */
-	public double[] sma50(double[] price) throws Exception {
-		return this.execute(price, 50);
+	public SimpleMovingAverage sma50(double[] price) throws Exception {
+		return this.calculate(price, 50);
 	}
 
 	/**
@@ -46,7 +48,11 @@ public class SimpleMovingAverage {
 	 * @return
 	 * @throws Exception
 	 */
-	public double[] sma200(double[] price) throws Exception {
-		return this.execute(price, 200);
+	public SimpleMovingAverage sma200(double[] price) throws Exception {
+		return this.calculate(price, 200);
+	}
+
+	public double[] getSimpleMovingAverages() {
+		return this.results;
 	}
 }
