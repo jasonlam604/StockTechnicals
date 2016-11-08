@@ -33,7 +33,7 @@ public class ExponentialMovingAverage {
 
 		for (int i = (period - 1); i < this.prices.length; i++) {
 			double[] slice = Arrays.copyOfRange(this.prices, 0, i + 1);
-			double[] smaResults = sma.execute(slice, this.period);
+			double[] smaResults = sma.calculate(slice, this.period).getSimpleMovingAverages();
 			this.periodSma[i] = smaResults[smaResults.length - 1];
 
 			if (i == (period - 1)) {
