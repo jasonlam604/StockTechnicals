@@ -74,7 +74,7 @@ public class AverageDirectionalIndexTest {
 		close = new double[] { 30.19, 31.12, 30.54, 29.78, 30.04 };
 
 		thrown.expect(Exception.class);
-		thrown.expectMessage("Given range is bigger then given data set");
+		thrown.expectMessage("Given period is larger then given data set");
 
 		AverageDirectionalIndex adx = new AverageDirectionalIndex();
 		adx.execute(high, low, close, 1000);

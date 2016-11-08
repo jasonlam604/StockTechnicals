@@ -46,7 +46,7 @@ public class AverageDirectionalIndex {
 	public double[] execute(double[] high, double[] low, double[] close, int period) throws Exception {
 
 		if (period >= high.length)
-			throw new Exception("Given range is bigger then given data set");
+			throw new Exception("Given period is larger then given data set");
 
 		if (high.length != close.length || high.length != low.length)
 			throw new Exception("High, Low and Close are not equal in size");
