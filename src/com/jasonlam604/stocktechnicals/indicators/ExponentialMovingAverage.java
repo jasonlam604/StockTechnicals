@@ -2,6 +2,8 @@ package com.jasonlam604.stocktechnicals.indicators;
 
 import java.util.Arrays;
 
+import com.jasonlam604.stocktechnicals.util.NumberFormatter;
+
 public class ExponentialMovingAverage {
 
 	private double[] prices;
@@ -34,9 +36,13 @@ public class ExponentialMovingAverage {
 			if (i == (period - 1)) {
 				this.periodEma[i] = this.periodSma[i];
 			} else if (i > (period - 1)) {
-				// Formula: (Close - EMA(previous day)) x multiplier + EMA(previous day)
-				this.periodEma[i] = (this.prices[i] - periodEma[i - 1]) * this.smoothingConstant + this.periodEma[i - 1];
+				// Formula: (Close - EMA(previous day)) x multiplier +
+				// EMA(previous day)
+				this.periodEma[i] = (this.prices[i] - periodEma[i - 1]) * this.smoothingConstant
+						+ this.periodEma[i - 1];
 			}
+
+			this.periodEma[i] = NumberFormatter.round(this.periodEma[i]);
 		}
 
 		return this.periodEma;
