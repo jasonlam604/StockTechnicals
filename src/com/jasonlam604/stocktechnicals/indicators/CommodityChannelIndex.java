@@ -4,10 +4,6 @@ import com.jasonlam604.stocktechnicals.util.NumberFormatter;
 
 /**
  * Commodity Channel Index
- * 
- * Commodity Channel Index (CCI) is a versatile indicator that can be used
- * to identify a new trend or warn of extreme conditions. -- StockCharts.com
- * 
  */
 public class CommodityChannelIndex {
 

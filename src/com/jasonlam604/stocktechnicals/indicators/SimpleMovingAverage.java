@@ -6,25 +6,9 @@ import com.jasonlam604.stocktechnicals.util.NumberFormatter;
 
 /**
  * Simple Moving Average
- *
- * A simple moving average (SMA) is an arithmetic moving average calculated
- * by adding the closing price of the security for a number of time periods
- * and then dividing this total by the number of time periods. --Investopedia.com
- *
  */
 public class SimpleMovingAverage {
 
-	/**
-	 * 
-	 * Calculation starts from index 0 to index n assuming there is enough
-	 * periods
-	 * 
-	 * @param price
-	 *            double array of values
-	 * @param period
-	 *            SMA period to be calculated over
-	 * @throws Exception
-	 */
 	public double[] execute(double[] price, int period) throws Exception {
 
 		// ie: if you want 50 SMA then you need 50 data points

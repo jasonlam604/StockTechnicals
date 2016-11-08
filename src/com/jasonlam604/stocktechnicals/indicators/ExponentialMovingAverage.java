@@ -4,6 +4,9 @@ import java.util.Arrays;
 
 import com.jasonlam604.stocktechnicals.util.NumberFormatter;
 
+/**
+ * Exponential Moving Average
+ */
 public class ExponentialMovingAverage {
 
 	private double[] prices;

@@ -6,9 +6,7 @@ import com.jasonlam604.stocktechnicals.util.NumberFormatter;
 import com.jasonlam604.stocktechnicals.util.TrueRange;
 
 /**
- * 
- * 
- * @author jasolam604@gmail.com
+ * Average Directional Index
  */
 public class AverageDirectionalIndex {
 
