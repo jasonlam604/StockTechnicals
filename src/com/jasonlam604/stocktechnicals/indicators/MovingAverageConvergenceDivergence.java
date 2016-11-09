@@ -9,7 +9,7 @@ public class MovingAverageConvergenceDivergence {
 	private double[] macd;
 	private double[] signal;
 
-	public MovingAverageConvergenceDivergence calculate(double[] prices, int shortEmaPeriod, int longEmaPeriod,
+	public MovingAverageConvergenceDivergence calculate(double[] prices, int fastPeriod, int slowPeriod,
 			int signalPeriod) throws Exception {
 
 		this.prices = prices;
@@ -17,12 +17,12 @@ public class MovingAverageConvergenceDivergence {
 		this.signal = new double[prices.length];
 
 		ExponentialMovingAverage emaShort = new ExponentialMovingAverage();
-		emaShort.calculate(prices, shortEmaPeriod).getEma();
+		emaShort.calculate(prices, fastPeriod).getEma();
 
 		ExponentialMovingAverage emaLong = new ExponentialMovingAverage();
-		emaLong.calculate(prices, longEmaPeriod).getEma();
+		emaLong.calculate(prices, slowPeriod).getEma();
 
-		for (int i = longEmaPeriod - 1; i < this.prices.length; i++) {
+		for (int i = slowPeriod - 1; i < this.prices.length; i++) {
 			this.macd[i] = emaShort.getEma()[i] - emaLong.getEma()[i];
 		}
 
