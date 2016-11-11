@@ -1,6 +1,7 @@
 # StockTechnicals
 
 [![Build Status](https://travis-ci.org/jasonlam604/StockTechnicals.svg?branch=master)](https://travis-ci.org/jasonlam604/StockTechnicals)
+[![Coverage Status](https://coveralls.io/repos/github/jasonlam604/StockTechnicals/badge.svg)](https://coveralls.io/github/jasonlam604/StockTechnicals)
 
 ## Status
 
