@@ -5,14 +5,17 @@ import java.text.DecimalFormat;
 
 public class NumberFormatter {
 
-	public static double round(double value) {
-		return NumberFormatter.round(value,2);
+	private NumberFormatter() {
 	}
-	
+
+	public static double round(double value) {
+		return NumberFormatter.round(value, 2);
+	}
+
 	public static double round(double value, int numberOfDigitsAfterDecimalPoint) {
-        BigDecimal bigDecimal = new BigDecimal(value);
-        bigDecimal = bigDecimal.setScale(numberOfDigitsAfterDecimalPoint, BigDecimal.ROUND_HALF_UP);
-        return bigDecimal.doubleValue();
-    }
+		BigDecimal bigDecimal = new BigDecimal(value);
+		bigDecimal = bigDecimal.setScale(numberOfDigitsAfterDecimalPoint, BigDecimal.ROUND_HALF_UP);
+		return bigDecimal.doubleValue();
+	}
 
 }
