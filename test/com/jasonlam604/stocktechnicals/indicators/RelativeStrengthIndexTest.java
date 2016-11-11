@@ -17,7 +17,7 @@ public class RelativeStrengthIndexTest {
 	
 		RelativeStrengthIndex rsi = new RelativeStrengthIndex();
 		try {
-			double[] results = rsi.execute(prices, 14);
+			double[] results = rsi.calculate(prices, 14).getRSI();
 
 			Assert.assertEquals(37.79, results[results.length - 1], 0);
 			Assert.assertEquals(33.09, results[results.length - 2], 0);
@@ -38,6 +38,6 @@ public class RelativeStrengthIndexTest {
 		thrown.expectMessage("Given period is larger then given data set");
 		
 		RelativeStrengthIndex rsi = new RelativeStrengthIndex();
-		double[] results = rsi.execute(prices, 100);
+		double[] results = rsi.calculate(prices, 100).getRSI();
 	}
 }

@@ -24,7 +24,7 @@ public class RelativeStrengthIndex {
 	private double[] avgLoss;
 
 	
-	public double[] execute(double[] prices, int period) throws Exception {
+	public RelativeStrengthIndex calculate(double[] prices, int period) throws Exception {
 		
 		if (period >= prices.length)
 			throw new Exception("Given period is larger then given data set");
@@ -75,7 +75,11 @@ public class RelativeStrengthIndex {
 			
 		}
 		
-		return rsi;
+		return this;
+	}
+	
+	public double[] getRSI() {
+		return this.rsi;
 	}
 	
 	@Override
