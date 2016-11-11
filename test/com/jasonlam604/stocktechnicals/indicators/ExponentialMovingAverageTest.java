@@ -19,7 +19,7 @@ public class ExponentialMovingAverageTest {
 
 		ExponentialMovingAverage ema = new ExponentialMovingAverage();
 		try {
-			double[] results = ema.calculate(prices, 10).getEma();
+			double[] results = ema.calculate(prices, 10).getEMA();
 
 			Assert.assertEquals(22.92, results[results.length - 1], 0);
 			Assert.assertEquals(23.09, results[results.length - 2], 0);
@@ -42,7 +42,7 @@ public class ExponentialMovingAverageTest {
 		thrown.expectMessage("Given period is bigger then given set of prices");
 
 		ExponentialMovingAverage ema = new ExponentialMovingAverage();
-		double[] results = ema.calculate(prices, 100).getEma();
+		double[] results = ema.calculate(prices, 100).getEMA();
 
 	}
 

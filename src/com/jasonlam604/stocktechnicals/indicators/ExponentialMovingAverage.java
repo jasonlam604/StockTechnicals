@@ -51,7 +51,7 @@ public class ExponentialMovingAverage {
 		return this;
 	}
 	
-	public double[] getEma() {
+	public double[] getEMA() {
 		return this.periodEma;
 	}
 

@@ -17,17 +17,17 @@ public class MovingAverageConvergenceDivergence {
 		this.signal = new double[prices.length];
 
 		ExponentialMovingAverage emaShort = new ExponentialMovingAverage();
-		emaShort.calculate(prices, fastPeriod).getEma();
+		emaShort.calculate(prices, fastPeriod).getEMA();
 
 		ExponentialMovingAverage emaLong = new ExponentialMovingAverage();
-		emaLong.calculate(prices, slowPeriod).getEma();
+		emaLong.calculate(prices, slowPeriod).getEMA();
 
 		for (int i = slowPeriod - 1; i < this.prices.length; i++) {
-			this.macd[i] = emaShort.getEma()[i] - emaLong.getEma()[i];
+			this.macd[i] = emaShort.getEMA()[i] - emaLong.getEMA()[i];
 		}
 
 		ExponentialMovingAverage signalEma = new ExponentialMovingAverage();
-		this.signal = signalEma.calculate(this.macd, signalPeriod).getEma();
+		this.signal = signalEma.calculate(this.macd, signalPeriod).getEMA();
 
 		return this;
 	}
