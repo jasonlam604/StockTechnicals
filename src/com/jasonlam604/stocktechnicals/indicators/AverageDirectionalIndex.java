@@ -43,7 +43,7 @@ public class AverageDirectionalIndex {
 	 * @return
 	 * @throws Exception
 	 */
-	public double[] execute(double[] high, double[] low, double[] close, int period) throws Exception {
+	public AverageDirectionalIndex calculate(double[] high, double[] low, double[] close, int period) throws Exception {
 
 		if (period >= high.length)
 			throw new Exception("Given period is larger then given data set");
@@ -103,6 +103,10 @@ public class AverageDirectionalIndex {
 
 		}
 
+		return this;
+	}
+	
+	public double[] getAdx() {
 		return this.adx;
 	}
 
