@@ -106,7 +106,7 @@ public class AverageDirectionalIndex {
 		return this;
 	}
 	
-	public double[] getAdx() {
+	public double[] getADX() {
 		return this.adx;
 	}
 
