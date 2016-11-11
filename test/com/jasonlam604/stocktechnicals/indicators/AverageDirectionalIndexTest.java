@@ -28,7 +28,7 @@ public class AverageDirectionalIndexTest {
 
 		AverageDirectionalIndex adx = new AverageDirectionalIndex();
 		try {
-			double[] results = adx.calculate(high, low, close, 14).getAdx();
+			double[] results = adx.calculate(high, low, close, 14).getADX();
 
 			Assert.assertEquals(24.06, results[results.length - 1], 0);
 			Assert.assertEquals(25.91, results[results.length - 2], 0);
@@ -58,7 +58,7 @@ public class AverageDirectionalIndexTest {
 		thrown.expectMessage("High, Low and Close are not equal in size");
 
 		AverageDirectionalIndex adx = new AverageDirectionalIndex();
-		adx.calculate(high, low, close, 14).getAdx();
+		adx.calculate(high, low, close, 14).getADX();
 	}
 
 	
@@ -77,6 +77,6 @@ public class AverageDirectionalIndexTest {
 		thrown.expectMessage("Given period is larger then given data set");
 
 		AverageDirectionalIndex adx = new AverageDirectionalIndex();
-		adx.calculate(high, low, close, 1000).getAdx();
+		adx.calculate(high, low, close, 1000).getADX();
 	}
 }
