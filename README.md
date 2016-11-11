@@ -1,5 +1,9 @@
 # StockTechnicals
 
+## Status
+
+Under Development
+
 ## Prerequisite
 
 * Java 8
