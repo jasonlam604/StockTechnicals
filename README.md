@@ -1,5 +1,7 @@
 # StockTechnicals
 
+[![Build Status](https://travis-ci.org/jasonlam604/StockTechnicals.svg?branch=master)](https://travis-ci.org/jasonlam604/StockTechnicals)
+
 ## Status
 
 Under Development
@@ -19,6 +21,13 @@ Under Development
 * SMA - Simple Moving Average
 
 ## Overlays
+
+## Software Used
+
+* Java 8 (yes, requires Java i.e.: uses Streams)
+* Maven 3.x
+* JUnit 4
+* TravisCI
 
 ## License
 
