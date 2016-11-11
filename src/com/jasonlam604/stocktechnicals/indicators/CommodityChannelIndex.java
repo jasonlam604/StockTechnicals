@@ -12,7 +12,7 @@ public class CommodityChannelIndex {
 	public CommodityChannelIndex calculate(double[] high, double[] low, double[] close, int range) throws Exception {
 
 		TypicalPrice typicalPrice = new TypicalPrice();
-		double[] tp = typicalPrice.executeSet(high, low, close);
+		double[] tp = typicalPrice.calculate(high, low, close).getTypicalPrice();
 
 		SimpleMovingAverage simpleMovingAverage = new SimpleMovingAverage();
 		double[] sma = simpleMovingAverage.calculate(tp, range).getSimpleMovingAverages();
