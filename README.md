@@ -16,3 +16,5 @@
 ## Overlays
 
 ## License
+
+The MIT License (MIT)
