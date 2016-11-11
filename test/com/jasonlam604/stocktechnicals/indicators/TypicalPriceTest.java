@@ -10,7 +10,7 @@ public class TypicalPriceTest {
 	@Test
 	public void calcTypicalPrice() {
 		TypicalPrice tp = new TypicalPrice();
-		Assert.assertEquals(23.98, tp.execute(24.20, 23.85, 23.89), 0);
+		Assert.assertEquals(23.98, tp.calculate(24.20, 23.85, 23.89).getTypicalPriceFrist(), 0);
 	}
 
 	@Test
@@ -25,7 +25,7 @@ public class TypicalPriceTest {
 		double[] results = null;
 
 		try {
-			results = tp.executeSet(high, low, close);
+			results = tp.calculate(high, low, close).getTypicalPrice();
 		} catch (Exception e) {
 
 		}
