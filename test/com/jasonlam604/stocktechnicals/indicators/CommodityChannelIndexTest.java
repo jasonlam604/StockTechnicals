@@ -28,7 +28,7 @@ public class CommodityChannelIndexTest {
 		CommodityChannelIndex commodityChannelIndex = new CommodityChannelIndex();
 
 		try {
-			double results[] = commodityChannelIndex.execute(high, low, close, 20);
+			double results[] = commodityChannelIndex.calculate(high, low, close, 20).getCCI();
 
 			Assert.assertEquals(101.74, results[19], 0);
 			Assert.assertEquals(31.91, results[20], 0);

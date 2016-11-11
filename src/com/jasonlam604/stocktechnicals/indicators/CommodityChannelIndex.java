@@ -7,7 +7,9 @@ import com.jasonlam604.stocktechnicals.util.NumberFormatter;
  */
 public class CommodityChannelIndex {
 
-	public double[] execute(double[] high, double[] low, double[] close, int range) throws Exception {
+	private double[] cci;
+
+	public CommodityChannelIndex calculate(double[] high, double[] low, double[] close, int range) throws Exception {
 
 		TypicalPrice typicalPrice = new TypicalPrice();
 		double[] tp = typicalPrice.executeSet(high, low, close);
@@ -15,7 +17,7 @@ public class CommodityChannelIndex {
 		SimpleMovingAverage simpleMovingAverage = new SimpleMovingAverage();
 		double[] sma = simpleMovingAverage.calculate(tp, range).getSimpleMovingAverages();
 
-		double[] cci = new double[high.length];
+		this.cci = new double[high.length];
 
 		double[] meanDev = new double[high.length];
 
@@ -36,14 +38,18 @@ public class CommodityChannelIndex {
 			meanDev[i] = meanDeviation;
 
 			if (meanDeviation == 0) {
-				cci[i] = 0;
+				this.cci[i] = 0;
 			} else {
-				cci[i] = NumberFormatter.round((tp[i] - sma[i]) / (0.015 * meanDeviation));
+				this.cci[i] = NumberFormatter.round((tp[i] - sma[i]) / (0.015 * meanDeviation));
 			}
 
 		}
 
-		return cci;
+		return this;
+	}
+
+	public double[] getCCI() {
+		return this.cci;
 	}
 
 }
