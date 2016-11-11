@@ -1,5 +1,7 @@
 package com.jasonlam604.stocktechnicals.util;
 
+import static org.junit.Assert.fail;
+
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Modifier;
 
@@ -31,11 +33,9 @@ public class NumberFormatterTest {
 		Assert.assertEquals(1.196, NumberFormatter.round(1.19555555, 3), 0);
 	}
 	
-	@Test
-	public void testPrivateConstructor()  {
-		final Constructor<?>[] constructors = NumberFormatter.class.getDeclaredConstructors();
-        for (Constructor<?> constructor : constructors) {
-            Assert.assertTrue(Modifier.isPrivate(constructor.getModifiers()));
-        }
+	@Test(expected=IllegalAccessException.class)
+	public void testConstructorPrivate() throws Exception {
+		NumberFormatter.class.newInstance();
+	    Assert.fail("class constructor should be private");
 	}
 }
