@@ -1,37 +1,195 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>StockTechnicals</groupId>
-  <artifactId>StockTechnicals</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
-  <name>StockTechnicals</name>
-  <description>Stock Technical Indicators and Overlays</description>
-  <build>
-    <sourceDirectory>src</sourceDirectory>
-    <testSourceDirectory>test</testSourceDirectory>
-    <plugins>
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.5.1</version>
-        <configuration>
-          <source/>
-          <target/>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
+  	<modelVersion>4.0.0</modelVersion>
   
-  <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.commons</groupId>
-      <artifactId>commons-lang3</artifactId>
-      <version>3.0</version>
-    </dependency>
-  </dependencies>
+  	<!-- PROJECT OVERVIEW -->
+  	<groupId>StockTechnicals</groupId>
+  	<artifactId>StockTechnicals</artifactId>
+  	<version>1.0.0-SNAPSHOT</version>
+  	<name>StockTechnicals</name>
+  	<description>Stock Technical Indicators and Overlays</description>
+  
+  	<!-- PROJECT PROPERTIES -->
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+  
+  	<!-- LIBRARY DEPENDENCIES -->
+  	<dependencies>
+    	<dependency>
+      		<groupId>junit</groupId>
+      	<artifactId>junit</artifactId>
+      	<version>4.12</version>
+      	<scope>test</scope>
+    	</dependency>
+    	<dependency>
+      	<groupId>org.apache.commons</groupId>
+      	<artifactId>commons-lang3</artifactId>
+      	<version>3.0</version>
+    	</dependency>
+  	</dependencies>
+  
+  	<!-- BUILD DEPENDENCIES -->
+  	<build>
+  	
+  	    <!-- SOURCE LOCATIONS -->  	    
+    	<sourceDirectory>src</sourceDirectory>
+    	<testSourceDirectory>test</testSourceDirectory>
+    	
+    	<!-- PLUGINS FOR MANAGING PLUGINS -->
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.3</version>
+					<configuration>
+						<source>1.8</source>
+						<target>1.8</target>
+					</configuration>
+				</plugin>
+				<plugin>
+					<!-- Used to get eclipse to ignore the jacoco part of the build process 
+						when it builds the project internally. jacoco is only used if you run through 
+						an external maven client, which prevents it being run on every save. -->
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.jacoco</groupId>
+										<artifactId>jacoco-maven-plugin</artifactId>
+										<versionRange>[0.0.1,)</versionRange>
+										<goals>
+											<goal>prepare-agent</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore />
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+    	
+    	<!-- BUILD PLUGINS -->
+		<plugins>
+			<plugin>
+				<!-- CODE COVERAGE -->
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.7.4.201502262128 </version>
+				<executions>
+					<!-- Prepare execution with Surefire -->
+					<execution>
+						<id>pre-unit-test</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+						<configuration>
+							<propertyName>surefireArgLine</propertyName>
+						</configuration>
+					</execution>
+					<!-- Generate report after tests are run -->
+					<execution>
+						<id>post-unit-test</id>
+						<phase>test</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
+				<!-- Specify classes to ignore in code coverage -->
+				<configuration>
+					<excludes>
+						<exclude>**/ui/**</exclude>
+						<exclude>**/StartSolverUi**</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<!-- UNIT TEST RUNNER -->
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.18.1</version>
+				<configuration>
+					<argLine>${surefireArgLine}</argLine>
+					<includes>
+						<include>**/*Test.java</include>
+						<include>**/*Tests.java</include>
+					</includes>
+				</configuration>
+				<executions>
+					<execution>
+						<id>run-unit-tests</id>
+						<goals>
+							<goal>test</goal>
+						</goals>
+
+					</execution>
+				</executions>
+			</plugin>
+			<!--  INTEGRATION TEST RUNNER -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-report-plugin</artifactId>
+				<version>2.18.1</version>
+			</plugin>
+			<!-- CODE COVERAGE PUBLISHER -->
+			<plugin>
+				<groupId>org.eluder.coveralls</groupId>
+				<artifactId>coveralls-maven-plugin</artifactId>
+				<version>3.1.0</version>
+			</plugin>
+		</plugins>
+    	
+    	<!--
+    	<plugins>
+    		<plugin>
+        		<artifactId>maven-compiler-plugin</artifactId>
+        		<version>3.5.1</version>
+        		<configuration>
+          			<source/>
+          			<target/>
+        		</configuration>
+      		</plugin>
+    	</plugins>
+    	-->
+    	
+  	</build>
+  
+	<!-- REPORTING - generated with 'mvn site' call -->
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jdepend-maven-plugin</artifactId>
+				<version>2.0</version>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>findbugs-maven-plugin</artifactId>
+				<version>3.0.1</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-report-plugin</artifactId>
+				<version>2.18.1</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<version>3.4</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</reporting>
   
 </project>
