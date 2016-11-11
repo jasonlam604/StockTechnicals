@@ -6,9 +6,12 @@
 
 Under Development
 
-## Prerequisite
+## Requirements
 
-* Java 8
+* Java 8 (yes, requires Java 8 i.e.: uses Streams)
+* Maven 3.x
+* JUnit 4
+* TravisCI
 
 ## Indicators
 
@@ -22,12 +25,8 @@ Under Development
 
 ## Overlays
 
-## Software Used
+* Pivot Points (under dev)
 
-* Java 8 (yes, requires Java i.e.: uses Streams)
-* Maven 3.x
-* JUnit 4
-* TravisCI
 
 ## License
 
