@@ -37,7 +37,7 @@ public class SimpleMovingAverage {
 	 * @return
 	 * @throws Exception
 	 */
-	public SimpleMovingAverage sma50(double[] price) throws Exception {
+	public SimpleMovingAverage getSMA50(double[] price) throws Exception {
 		return this.calculate(price, 50);
 	}
 
@@ -48,11 +48,11 @@ public class SimpleMovingAverage {
 	 * @return
 	 * @throws Exception
 	 */
-	public SimpleMovingAverage sma200(double[] price) throws Exception {
+	public SimpleMovingAverage getSMA200(double[] price) throws Exception {
 		return this.calculate(price, 200);
 	}
 
-	public double[] getSimpleMovingAverages() {
+	public double[] getSMA() {
 		return this.results;
 	}
 }

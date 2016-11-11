@@ -15,7 +15,7 @@ public class CommodityChannelIndex {
 		double[] tp = typicalPrice.calculate(high, low, close).getTypicalPrice();
 
 		SimpleMovingAverage simpleMovingAverage = new SimpleMovingAverage();
-		double[] sma = simpleMovingAverage.calculate(tp, range).getSimpleMovingAverages();
+		double[] sma = simpleMovingAverage.calculate(tp, range).getSMA();
 
 		this.cci = new double[high.length];
 
