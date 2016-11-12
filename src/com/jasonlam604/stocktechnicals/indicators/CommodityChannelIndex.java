@@ -37,9 +37,7 @@ public class CommodityChannelIndex {
 
 			meanDev[i] = meanDeviation;
 
-			if (meanDeviation == 0) {
-				this.cci[i] = 0;
-			} else {
+			if (meanDeviation > 0) {
 				this.cci[i] = NumberFormatter.round((tp[i] - sma[i]) / (0.015 * meanDeviation));
 			}
 
