@@ -1,9 +1,6 @@
 package com.jasonlam604.stocktechnicals.indicators;
 
 import java.util.Arrays;
-
-import org.junit.Test;
-
 import com.jasonlam604.stocktechnicals.util.NumberFormatter;
 
 /**
