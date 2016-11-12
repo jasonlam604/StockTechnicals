@@ -3,12 +3,17 @@ package com.jasonlam604.stocktechnicals.indicators;
 import com.jasonlam604.stocktechnicals.indicators.SimpleMovingAverage;
 
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 import org.junit.Assert;
+import org.junit.Rule;
 
 public class SimpleMovingAverageTest {
 
+	@Rule
+	public ExpectedException thrown = ExpectedException.none();
+	
 	@Test
-	public void calcSimpleMovingAverage1() {
+	public void testCalcSimpleMovingAverage1() {
 		SimpleMovingAverage sma = new SimpleMovingAverage();
 		try {
 			double[] results = sma.calculate(new double[] { 17, 16, 15, 14, 13, 12, 11 }, 5).getSMA();
@@ -21,9 +26,18 @@ public class SimpleMovingAverageTest {
 
 		}
 	}
+	
+	@Test
+	public void testExpectWrongSizeException() throws Exception {
+		
+		thrown.expect(Exception.class);
+		thrown.expectMessage("Not enough data points, given data size less then the indicated period");
+		
+		double[] results = new SimpleMovingAverage().calculate(new double[] { 17, 16, 15, 14, 13, 12, 11 }, 100).getSMA();
+	}
 
 	@Test
-	public void calcSimpleMovingAverage2() {
+	public void testCalcSimpleMovingAverage2() {
 		SimpleMovingAverage sma = new SimpleMovingAverage();
 		try {
 			double[] results = sma.calculate(new double[] { 22.27, 22.19, 22.08, 22.17, 22.18, 22.13, 22.23, 22.43, 22.24,

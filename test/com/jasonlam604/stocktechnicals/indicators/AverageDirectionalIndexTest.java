@@ -15,7 +15,7 @@ public class AverageDirectionalIndexTest {
 	private double close[];
 
 	@Test
-	public void calcAdx() {
+	public void testCalcAdx() {
 		high = new double[] { 30.20, 30.28, 30.45, 29.35, 29.35, 29.29, 28.83, 28.73, 28.67, 28.85, 28.64, 27.68, 27.21,
 				26.87, 27.41, 26.94, 26.52, 26.52, 27.09, 27.69, 28.45, 28.53, 28.67, 29.01, 29.87, 29.80, 29.75, 30.65,
 				30.60, 30.76, 31.17, 30.89, 30.04, 30.66 };
@@ -44,7 +44,7 @@ public class AverageDirectionalIndexTest {
 	}
 
 	@Test
-	public void expectWrongSizeException() throws Exception {
+	public void testExpectWrongSizeException() throws Exception {
 
 		high = new double[] { 30.20, 30.28, 30.45, 29.35, 29.35, 29.29, 28.83, 28.73, 28.67, 28.85, 28.64, 27.68, 27.21,
 				26.87, 27.41, 26.94, 26.52, 26.52, 27.09, 27.69, 28.45, 28.53, 28.67, 29.01, 29.87, 29.80, 29.75, 30.65,
@@ -63,7 +63,7 @@ public class AverageDirectionalIndexTest {
 
 	
 	@Test
-	public void expectPeriodLargerThenDataException() throws Exception {
+	public void testExpectPeriodLargerThenDataException() throws Exception {
 
 		high = new double[] { 30.20, 30.28, 30.45, 29.35, 29.35, 29.29, 28.83, 28.73, 28.67, 28.85, 28.64, 27.68, 27.21,
 				26.87, 27.41, 26.94, 26.52, 26.52, 27.09, 27.69, 28.45, 28.53, 28.67, 29.01, 29.87, 29.80, 29.75, 30.65,

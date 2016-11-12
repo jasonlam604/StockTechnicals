@@ -8,7 +8,7 @@ import org.junit.Assert;
 public class TrueRangeTest {
 
 	@Test
-	public void calcTrueRange() {
+	public void testCalcTrueRange() {
 		TrueRange trueRange = new TrueRange();
 		
 		Assert.assertEquals(0.57, trueRange.calculate(44.93, 44.36, 44.52).getTrueRange(), 0);

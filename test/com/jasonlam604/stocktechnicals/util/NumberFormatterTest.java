@@ -17,7 +17,7 @@ public class NumberFormatterTest {
 	public ExpectedException thrown = ExpectedException.none();
 
 	@Test
-	public void roundingTwoDecimals() {
+	public void testRoundingTwoDecimals() {
 		Assert.assertEquals(10, NumberFormatter.round(10), 0);
 		Assert.assertEquals(1, NumberFormatter.round(1), 0);
 		Assert.assertEquals(1.1, NumberFormatter.round(1.1), 0);
@@ -27,7 +27,7 @@ public class NumberFormatterTest {
 	}
 
 	@Test
-	public void roundingWithIndicateDecimalPoints() {
+	public void testRoundingWithIndicateDecimalPoints() {
 		Assert.assertEquals(1, NumberFormatter.round(1.19555555, 0), 0);
 		Assert.assertEquals(1.2, NumberFormatter.round(1.19555555, 1), 0);
 		Assert.assertEquals(1.20, NumberFormatter.round(1.19555555, 2), 0);
@@ -46,7 +46,7 @@ public class NumberFormatterTest {
 	}
 
 	@Test
-	public void callPrivateConstructorsForCodeCoverage() throws SecurityException, NoSuchMethodException,
+	public void testCallPrivateConstructorsForCodeCoverage() throws SecurityException, NoSuchMethodException,
 			IllegalArgumentException, InstantiationException, IllegalAccessException, InvocationTargetException {
 		Class<?>[] classesToConstruct = { NumberFormatter.class };
 		for (Class<?> clazz : classesToConstruct) {
