@@ -1,5 +1,7 @@
 package com.jasonlam604.stocktechnicals.overlays;
 
+import com.jasonlam604.stocktechnicals.util.NumberFormatter;
+
 /**
  * Pivots Points
  */
@@ -179,63 +181,63 @@ public class PivotPoints {
 	}
 
 	public double getR1() {
-		return r1;
+		return NumberFormatter.round(r1,2);
 	}
 
 	public double getR2() {
-		return r2;
+		return NumberFormatter.round(r2,2);
 	}
 
 	public double getR3() {
-		return r3;
+		return NumberFormatter.round(r3,2);
 	}
 
 	public double getR4() {
-		return r4;
+		return NumberFormatter.round(r4,2);
 	}
 
 	public double getR5() {
-		return r5;
+		return NumberFormatter.round(r5,2);
 	}
 
 	public double getR6() {
-		return r6;
+		return NumberFormatter.round(r6,2);
 	}
 
 	public double getR7() {
-		return r7;
+		return NumberFormatter.round(r7,2);
 	}
 
 	public double getS1() {
-		return s1;
+		return NumberFormatter.round(s1,2);
 	}
 
 	public double getS2() {
-		return s2;
+		return NumberFormatter.round(s2,2);
 	}
 
 	public double getS3() {
-		return s3;
+		return NumberFormatter.round(s3,2);
 	}
 
 	public double getS4() {
-		return s4;
+		return NumberFormatter.round(s4,2);
 	}
 
 	public double getS5() {
-		return s5;
+		return NumberFormatter.round(s5,2);
 	}
 
 	public double getS6() {
-		return s6;
+		return NumberFormatter.round(s6,2);
 	}
 
 	public double getS7() {
-		return s7;
+		return NumberFormatter.round(s7,2);
 	}
 
-	public double getPivotPoint() {
-		return pivotPoint;
+	public double getPP() {
+		return NumberFormatter.round(pivotPoint,2);
 	}
 
 }
