@@ -20,10 +20,10 @@ Under Development
 * CCI - Commodity Channel Index  (done)
 * EMA - Exponential Strength Index (done)
 * MACD - Moving Average Convergence/Divergence Oscillator (done)
-* PSAR - Parabolic SAR (planned)
+* PSAR - Parabolic SAR (Under development)
 * RSI - Relative Strength Index (done)
 * SMA - Simple Moving Average (done)
-* TP - Typical Price (don)
+* TP - Typical Price (done)
 
 ## Overlays
 
