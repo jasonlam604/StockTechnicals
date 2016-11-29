@@ -27,7 +27,7 @@ Under Development
 
 ## Overlays
 
-* Pivot Points (in development)
+* Standard Pivot Points (done)
 
 ## License
 
