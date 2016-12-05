@@ -78,7 +78,7 @@ public class PivotPoints {
 		this.s7 = this.pivotPoint - (2.618 * (high - low));
 	}
 
-	public int findZone(int price) throws Exception {
+	public int findZone(double price) throws Exception {
 		if (price >= this.s7 && price < this.s6) {
 			return PivotPoints.ZONE_NEG_7;
 		} else if (price >= this.s6 && price < this.s5) {
@@ -109,39 +109,39 @@ public class PivotPoints {
 			return PivotPoints.ZONE_POS_7;
 		}
 
-		throw new Exception("No matching Zone");
+		throw new Exception("No matching zone");
 	}
 
 	public double zoneTopValue(int zone) throws Exception {
 
 		if (zone == PivotPoints.ZONE_NEG_7)
-			return this.s6;
+			return this.getS6();
 		else if (zone == PivotPoints.ZONE_NEG_6)
-			return this.s5;
+			return this.getS5();
 		else if (zone == PivotPoints.ZONE_NEG_5)
-			return this.s4;
+			return this.getS4();
 		else if (zone == PivotPoints.ZONE_NEG_4)
-			return this.s3;
+			return this.getS3();
 		else if (zone == PivotPoints.ZONE_NEG_3)
-			return this.s2;
+			return this.getS2();
 		else if (zone == PivotPoints.ZONE_NEG_2)
-			return this.s1;
+			return this.getS1();
 		else if (zone == PivotPoints.ZONE_NEG_1)
-			return this.pivotPoint;
+			return this.getPP();
 		else if (zone == PivotPoints.ZONE_POS_1)
-			return this.r1;
+			return this.getR1();
 		else if (zone == PivotPoints.ZONE_POS_2)
-			return this.r2;
+			return this.getR2();
 		else if (zone == PivotPoints.ZONE_POS_3)
-			return this.r3;
+			return this.getR3();
 		else if (zone == PivotPoints.ZONE_POS_4)
-			return this.r4;
+			return this.getR4();
 		else if (zone == PivotPoints.ZONE_POS_5)
-			return this.r5;
+			return this.getR5();
 		else if (zone == PivotPoints.ZONE_POS_6)
-			return this.r6;
+			return this.getR6();
 		else if (zone == PivotPoints.ZONE_POS_7)
-			return this.r7;
+			return this.getR7();
 		else
 			throw new Exception("Invalid zone given");
 	}
@@ -149,33 +149,33 @@ public class PivotPoints {
 	public double zoneBottomValue(int zone) throws Exception {
 
 		if (zone == PivotPoints.ZONE_NEG_7)
-			return this.s7;
+			return this.getS7();
 		else if (zone == PivotPoints.ZONE_NEG_6)
-			return this.s6;
+			return this.getS6();
 		else if (zone == PivotPoints.ZONE_NEG_5)
-			return this.s5;
+			return this.getS5();
 		else if (zone == PivotPoints.ZONE_NEG_4)
-			return this.s4;
+			return this.getS4();
 		else if (zone == PivotPoints.ZONE_NEG_3)
-			return this.s3;
+			return this.getS3();
 		else if (zone == PivotPoints.ZONE_NEG_2)
-			return this.s2;
+			return this.getS2();
 		else if (zone == PivotPoints.ZONE_NEG_1)
-			return this.s1;
+			return this.getS1();
 		else if (zone == PivotPoints.ZONE_POS_1)
-			return this.pivotPoint;
+			return this.getPP();
 		else if (zone == PivotPoints.ZONE_POS_2)
-			return this.r1;
+			return this.getR1();
 		else if (zone == PivotPoints.ZONE_POS_3)
-			return this.r2;
+			return this.getR2();
 		else if (zone == PivotPoints.ZONE_POS_4)
-			return this.r3;
+			return this.getR3();
 		else if (zone == PivotPoints.ZONE_POS_5)
-			return this.r4;
+			return this.getR4();
 		else if (zone == PivotPoints.ZONE_POS_6)
-			return this.r5;
+			return this.getR5();
 		else if (zone == PivotPoints.ZONE_POS_7)
-			return this.r6;
+			return this.getR6();
 		else
 			throw new Exception("Invalid zone given");
 	}
