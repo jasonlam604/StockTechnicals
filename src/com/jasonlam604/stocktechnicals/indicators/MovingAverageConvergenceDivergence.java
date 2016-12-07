@@ -1,5 +1,7 @@
 package com.jasonlam604.stocktechnicals.indicators;
 
+import com.jasonlam604.stocktechnicals.util.NumberFormatter;
+
 /**
  * Moving Average Convergence/Divergence Oscillator
  */
@@ -23,7 +25,7 @@ public class MovingAverageConvergenceDivergence {
 		emaLong.calculate(prices, slowPeriod).getEMA();
 
 		for (int i = slowPeriod - 1; i < this.prices.length; i++) {
-			this.macd[i] = emaShort.getEMA()[i] - emaLong.getEMA()[i];
+			this.macd[i] = NumberFormatter.round(emaShort.getEMA()[i] - emaLong.getEMA()[i]);
 		}
 
 		ExponentialMovingAverage signalEma = new ExponentialMovingAverage();
