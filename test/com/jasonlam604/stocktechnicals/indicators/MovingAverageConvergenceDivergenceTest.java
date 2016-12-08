@@ -56,7 +56,7 @@ public class MovingAverageConvergenceDivergenceTest {
 			macd.calculate(prices, 12, 26, 9);
 			double[] results = macd.getMACD();
 
-			Assert.assertTrue(!results.toString().isEmpty());
+			Assert.assertTrue(!macd.toString().isEmpty());
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
