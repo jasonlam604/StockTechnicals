@@ -16,18 +16,18 @@ Under Development
 
 ## Indicators
 
-* ADX - Average Directional Index (done)
-* CCI - Commodity Channel Index  (done)
-* EMA - Exponential Strength Index (done)
-* MACD - Moving Average Convergence/Divergence Oscillator (done)
-* PSAR - Parabolic SAR (done)
-* RSI - Relative Strength Index (done)
-* SMA - Simple Moving Average (done)
-* TP - Typical Price (done)
+* ADX - Average Directional Index
+* CCI - Commodity Channel Index
+* EMA - Exponential Strength Index
+* MACD - Moving Average Convergence/Divergence Oscillator
+* PSAR - Parabolic SAR
+* RSI - Relative Strength Index
+* SMA - Simple Moving Average
+* TP - Typical Price
 
 ## Overlays
 
-* Standard Pivot Points (done)
+* Standard Pivot Points
 
 ## License
 
