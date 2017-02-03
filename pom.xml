@@ -2,18 +2,51 @@
   	<modelVersion>4.0.0</modelVersion>
   
   	<!-- PROJECT OVERVIEW -->
-  	<groupId>StockTechnicals</groupId>
+  	<groupId>com.jasonlam604</groupId>
   	<artifactId>StockTechnicals</artifactId>
   	<version>0.1.0</version>
   	<name>StockTechnicals</name>
   	<description>Stock Technical Indicators and Overlays</description>
+  	<url>https://github.com/jasonlam604/StockTechnicals</url>
+	
+	<!-- ISSUE MANAGEMENT -->
+	<issueManagement>
+		<url>https://github.com/jasonlam604/StockTechnicals/issues</url>
+		<system>GitHub Issues</system>
+	</issueManagement>
+	
+	<!-- LICENSE -->
+	<licenses>
+		<license>
+			<name>MIT License</name>
+			<url>http://www.opensource.org/licenses/mit-license.php</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+	
+	<!-- REPO -->
+	<scm>
+		<url>https://github.com/jasonlam604/StockTechnicals</url>
+		<connection>scm:git:git@github.com:jasonlam604/StockTechnicals.git</connection>
+		<developerConnection>scm:git:git@github.com:jasonlam604/StockTechnicals.git</developerConnection>
+	</scm>
   
+    <!-- CONTRIBUTORS -->
+  	<developers>
+		<developer>
+			<email>jasonlam604@gmail.com</email>
+			<name>Jason Lam</name>
+			<url>https://github.com/jasonlam604</url>
+			<id>jasonlam604</id>
+		</developer>
+	</developers>
+  	
   	<!-- PROJECT PROPERTIES -->
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
-  
-  	<!-- LIBRARY DEPENDENCIES -->
+	
+	<!-- LIBRARY DEPENDENCIES -->
   	<dependencies>
     	<dependency>
       		<groupId>junit</groupId>
