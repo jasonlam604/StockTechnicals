@@ -19,21 +19,30 @@ public class MovingAverageConvergenceDivergenceTest {
 		try {
 			macd.calculate(prices, 12, 26, 9);
 			double[] results = macd.getMACD();
+			double[] signals = macd.getSignal();
+			double[] diff = macd.getDiff();
+			int[] crossover = macd.getCrossover();
 
 			// Test the first few
 			Assert.assertEquals(8.27, results[25], 0);
 			Assert.assertEquals(7.70, results[26], 0);
 			Assert.assertEquals(6.41, results[27], 0);
 			Assert.assertEquals(4.24, results[28], 0);
+			
+			// At this point negative crossover happens
 			Assert.assertEquals(2.56, results[29], 0);
+			Assert.assertTrue(diff[29] < 0);
+			Assert.assertTrue(crossover[29] == -1);
 
-			double[] signals = macd.getSignal();
+			
 
 			Assert.assertEquals(1.65, signals[25], 0);
 			Assert.assertEquals(2.86, signals[26], 0);
 			Assert.assertEquals(3.57, signals[27], 0);
 			Assert.assertEquals(3.70, signals[28], 0);
 			Assert.assertEquals(3.47, signals[29], 0);
+			
+			System.out.println(macd.toString());
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
