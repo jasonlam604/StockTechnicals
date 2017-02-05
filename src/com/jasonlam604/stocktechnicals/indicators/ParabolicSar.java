@@ -8,18 +8,37 @@ import com.jasonlam604.stocktechnicals.util.NumberFormatter;
  */
 public class ParabolicSar {
 
+	/**
+	 * parabolicSars contains psar values
+	 */
 	private double[] parabolicSars;
 
+	/**
+	 * The trends represents the trends where above 0 is positive and below zero is negative
+	 */
 	private double[] trends;
+	
+	 /**
+	   * The trendFlip when true indicates the trend change since last time
+	   */
+	private boolean[] trendFlip;
 
 	public void calculate(double[] high, double[] low) {
 		this.calculate(high, low, 0.02, 0.20);
 	}
 
+	/**
+	 * Calculate PSAR
+	 * @param high values
+	 * @param low values
+	 * @param acceleration used to calculate PSAR
+	 * @param accelaration maximum used to calculate PSAR
+	 */
 	public void calculate(double[] high, double[] low, double acceleration, double accelerationMax) {
 
 		this.parabolicSars = new double[high.length];
 		this.trends = new double[high.length];
+		this.trendFlip = new boolean[high.length];
 
 		int trend = (high[1] >= high[0] || low[0] <= low[1]) ? +1 : -1;
 
@@ -93,6 +112,12 @@ public class ParabolicSar {
 
 			this.parabolicSars[i + 1] = NumberFormatter.round(nextSar);
 			this.trends[i + 1] = trend;
+			
+			if(this.trends[i] != this.trends[i+1]) {
+				this.trendFlip[i+1] = true;	
+			} else {
+				this.trendFlip[i+1] = false;	
+			}
 
 			parabolicSar = nextSar;
 		}
@@ -105,5 +130,9 @@ public class ParabolicSar {
 
 	public double[] getTrends() {
 		return this.trends;
+	}
+	
+	public boolean[] getTrendChanged() {
+		return this.trendFlip;
 	}
 }

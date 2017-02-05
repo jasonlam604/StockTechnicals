@@ -108,6 +108,7 @@ public class ParabolicSarTest {
 		psar.calculate(high, low);
 
 		double[] trendsResults = psar.getTrends();
+		boolean[] trendChanged = psar.getTrendChanged();
 
 		Assert.assertEquals(1, trendsResults[9], 0);
 		Assert.assertEquals(1, trendsResults[10], 0);
@@ -116,6 +117,9 @@ public class ParabolicSarTest {
 		Assert.assertEquals(1, trendsResults[32], 0);
 		Assert.assertEquals(1, trendsResults[32], 0);
 
+		// Assert Trend Changed happened
+		Assert.assertTrue(trendChanged[10] == false);
+		Assert.assertTrue(trendChanged[11] == true);
 	}
 
 }
