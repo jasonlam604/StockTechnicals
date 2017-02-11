@@ -24,7 +24,7 @@ public class ParabolicSarTest {
 		psar.calculate(high, low);
 
 		double[] psarResults = psar.getPsars();
-		double[] trendsResults = psar.getTrends();
+		int[] trendsResults = psar.getTrends();
 
 		for (int i = 1; i < trendsResults.length; i++) {
 			Assert.assertEquals(1, trendsResults[i], 0);
@@ -66,7 +66,7 @@ public class ParabolicSarTest {
 		psar.calculate(high, low);
 
 		double[] psarResults = psar.getPsars();
-		double[] trendsResults = psar.getTrends();
+		int[] trendsResults = psar.getTrends();
 
 		for (int i = 1; i < trendsResults.length; i++) {
 			Assert.assertEquals(-1, trendsResults[i], 0);
@@ -107,7 +107,7 @@ public class ParabolicSarTest {
 		ParabolicSar psar = new ParabolicSar();
 		psar.calculate(high, low);
 
-		double[] trendsResults = psar.getTrends();
+		int[] trendsResults = psar.getTrends();
 		boolean[] trendChanged = psar.getTrendChanged();
 
 		Assert.assertEquals(1, trendsResults[9], 0);

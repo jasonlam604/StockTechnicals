@@ -16,7 +16,7 @@ public class ParabolicSar {
 	/**
 	 * The trends represents the trends where above 0 is positive and below zero is negative
 	 */
-	private double[] trends;
+	private int[] trends;
 	
 	 /**
 	   * The trendFlip when true indicates the trend change since last time
@@ -37,7 +37,7 @@ public class ParabolicSar {
 	public void calculate(double[] high, double[] low, double acceleration, double accelerationMax) {
 
 		this.parabolicSars = new double[high.length];
-		this.trends = new double[high.length];
+		this.trends = new int[high.length];
 		this.trendFlip = new boolean[high.length];
 
 		int trend = (high[1] >= high[0] || low[0] <= low[1]) ? +1 : -1;
@@ -128,7 +128,7 @@ public class ParabolicSar {
 		return this.parabolicSars;
 	}
 
-	public double[] getTrends() {
+	public int[] getTrends() {
 		return this.trends;
 	}
 	
