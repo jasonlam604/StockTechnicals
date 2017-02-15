@@ -109,7 +109,15 @@ public class AverageDirectionalIndex {
 	public double[] getADX() {
 		return this.adx;
 	}
-
+	
+	public double[] getPositiveDirectionalIndicator() {
+		return this.posDiPeriod;
+	}
+	
+	public double[] getNegativeDirectionalIndicator() {
+		return this.negDiPeriod;
+	}
+	
 	/**
 	 * Calculate Positive Directional Movement
 	 * 
