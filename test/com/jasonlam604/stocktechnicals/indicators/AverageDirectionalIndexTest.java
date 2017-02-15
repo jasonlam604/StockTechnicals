@@ -37,6 +37,12 @@ public class AverageDirectionalIndexTest {
 			Assert.assertEquals(30.08, results[results.length - 5], 0);
 			Assert.assertEquals(32.30, results[results.length - 6], 0);
 			Assert.assertEquals(33.73, results[results.length - 7], 0);
+			
+			double[] posDI = adx.getPositiveDirectionalIndicator();
+			Assert.assertEquals(23.82, posDI[results.length - 7], 0);
+			
+			double[] negDI = adx.getNegativeDirectionalIndicator();
+			Assert.assertEquals(18.11, negDI[results.length - 7], 0);
 
 		} catch (Exception e) {
 
