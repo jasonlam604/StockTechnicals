@@ -29,6 +29,12 @@ Under Development
 
 * Standard Pivot Points
 
+## Todo
+
+* Add more indicators and overlays
+* Upgrade to Junit 5
+
+
 ## License
 
 The MIT License (MIT)
