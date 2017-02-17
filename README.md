@@ -33,7 +33,7 @@ Under Development
 
 * Add more indicators and overlays
 * Upgrade to Junit 5
-
+* Developer User Guide
 
 ## License
 
