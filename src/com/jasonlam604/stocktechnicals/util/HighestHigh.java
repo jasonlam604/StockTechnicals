@@ -19,16 +19,17 @@ public class HighestHigh {
 	 *            array of high values
 	 * @param range
 	 */
-	public void find(double[] high, int range) {
+	public void find(double[] high, int startIndex, int endIndex) {
 
 		this.doubles = ArrayUtils.toObject(high);
+		
+		if(startIndex < 0 || startIndex > endIndex)
+			startIndex = 0;
+		
+		if(endIndex < startIndex || endIndex > (doubles.length - 1))
+			endIndex = doubles.length - 1;
 
-		int limit = doubles.length - 1;
-
-		if (range < limit)
-			limit = range;
-
-		IntStream.range(0, limit).parallel().reduce((a, b) -> doubles[a] < doubles[b] ? b : a)
+		IntStream.range(startIndex, endIndex).parallel().reduce((a, b) -> doubles[a] < doubles[b] ? b : a)
 				.ifPresent(ix -> setValues(ix));
 
 	}
