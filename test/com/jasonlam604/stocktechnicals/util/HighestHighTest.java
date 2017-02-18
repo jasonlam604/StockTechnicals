@@ -17,7 +17,7 @@ public class HighestHighTest {
 	
 	@Test
 	public void testHighestHighIndexTwoToFour() {
-		double[] values = { 13.3, 19.9, 10, 21, 7.7 };
+		double[] values = { 13.3, 19.9, 10, 21, 7.7,9.9,12.4 };
 		
 		HighestHigh highestHigh = new HighestHigh();
 		highestHigh = new HighestHigh();
@@ -28,10 +28,10 @@ public class HighestHighTest {
 
 	@Test
 	public void testHighestHighUsingValueSize() {
-		double[] values = { 13.3, 19.9, 10, 21, 7.7 };
+		double[] values = { 13.3, 19.9, 10, 21, 7.7,9.9,12.4 };
 
 		HighestHigh highestHigh = new HighestHigh();
-		highestHigh.find(values, 0, 20);
+		highestHigh.find(values, 0, 5);
 		Assert.assertEquals(21, highestHigh.getValue(), 0);
 		Assert.assertEquals(3, highestHigh.getIndex(), 0);
 	}

@@ -1,12 +1,6 @@
 package com.jasonlam604.stocktechnicals.util;
 
-import java.util.stream.IntStream;
-
-import org.apache.commons.lang3.ArrayUtils;
-
 public class HighestHigh {
-
-	private Double[] doubles;
 
 	private int index;
 
@@ -21,22 +15,18 @@ public class HighestHigh {
 	 */
 	public void find(double[] high, int startIndex, int endIndex) {
 
-		this.doubles = ArrayUtils.toObject(high);
-		
-		if(startIndex < 0 || startIndex > endIndex)
-			startIndex = 0;
-		
-		if(endIndex < startIndex || endIndex > (doubles.length - 1))
-			endIndex = doubles.length - 1;
+		this.value = high[startIndex];
+		this.index = startIndex;	
 
-		IntStream.range(startIndex, endIndex).parallel().reduce((a, b) -> doubles[a] < doubles[b] ? b : a)
-				.ifPresent(ix -> setValues(ix));
-
-	}
-
-	private void setValues(int ix) {
-		this.index = ix;
-		this.value = doubles[ix];
+		for (int i=startIndex; i < endIndex+startIndex; i++) {
+			
+			if (high[i] > this.value) {
+				
+				this.value = high[i];
+				this.index = i;
+				
+			}
+		}
 	}
 
 	public double getValue() {

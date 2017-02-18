@@ -21,7 +21,7 @@ public class LowestLowTest {
 		double[] values = { 13.3, 19.9, 10, 21, 7.7 };
 
 		LowestLow lowestLow = new LowestLow();
-		lowestLow.find(values, 2, 4);
+		lowestLow.find(values, 2, 2);
 
 		Assert.assertEquals(10.0, lowestLow.getValue(), 0);
 		Assert.assertEquals(2, lowestLow.getIndex(), 0);

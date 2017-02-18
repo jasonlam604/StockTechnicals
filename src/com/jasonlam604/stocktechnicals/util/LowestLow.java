@@ -1,12 +1,6 @@
 package com.jasonlam604.stocktechnicals.util;
 
-import java.util.stream.IntStream;
-
-import org.apache.commons.lang3.ArrayUtils;
-
 public class LowestLow {
-
-	private Double[] doubles;
 
 	private int index;
 
@@ -15,28 +9,24 @@ public class LowestLow {
 	/**
 	 * Finds the lowest low from index 0 and to the indicated give range index
 	 * 
-	 * @param high
+	 * @param low
 	 *            array of high values
 	 * @param range
 	 */
-	public void find(double[] high, int startIndex, int endIndex) {
+	public void find(double[] low, int startIndex, int endIndex) {
 
-		this.doubles = ArrayUtils.toObject(high);
+		this.value = low[startIndex];
+		this.index = startIndex;	
 
-		if(startIndex < 0 || startIndex > endIndex)
-			startIndex = 0;
-		
-		if(endIndex < startIndex || endIndex > (doubles.length - 1))
-			endIndex = doubles.length - 1;
-
-		IntStream.range(startIndex, endIndex).parallel().reduce((a, b) -> doubles[a] > doubles[b] ? b : a)
-				.ifPresent(ix -> setValues(ix));
-
-	}
-
-	private void setValues(int ix) {
-		this.index = ix;
-		this.value = doubles[ix];
+		for (int i=startIndex; i < endIndex+startIndex; i++) {
+			
+			if (low[i] < this.value) {
+				
+				this.value = low[i];
+				this.index = i;
+				
+			}
+		}
 	}
 
 	public double getValue() {
