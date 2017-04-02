@@ -17,6 +17,8 @@ Under Development
 ## Indicators
 
 * ADX - Average Directional Index
+* Aroon (up and down)
+* Aroon Oscillator
 * CCI - Commodity Channel Index
 * EMA - Exponential Strength Index
 * MACD - Moving Average Convergence/Divergence Oscillator
